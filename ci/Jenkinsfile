@@ -83,6 +83,7 @@ ansiColor('xterm') { withEnv(['TERM=xterm-color']) {
       'go vet': {
         setupStep('linux') { run ->
           timeout(time: check_timeout, unit: 'MINUTES') {
+            run 'make gx-deps'
             run 'go vet ./...'
           }
         }
